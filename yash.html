@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yash Portfolio</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background: linear-gradient(135deg,#1e3c72,#2a5298);
+  color:white;
+  overflow-x:hidden;
+}
+
+/* NAVBAR */
+nav{
+  display:flex;
+  justify-content:space-between;
+  padding:15px 30px;
+  background:rgba(255,255,255,0.1);
+  backdrop-filter:blur(10px);
+  position:sticky;
+  top:0;
+}
+
+nav h2{
+  color:#00ffd5;
+}
+
+nav ul{
+  display:flex;
+  list-style:none;
+}
+
+nav ul li{
+  margin-left:20px;
+  cursor:pointer;
+}
+
+/* HERO */
+.hero{
+  height:90vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:40px;
+}
+
+.hero span{
+  color:#00ffd5;
+}
+
+.hero p{
+  margin-top:10px;
+}
+
+/* BUTTON */
+.btn{
+  margin-top:20px;
+  padding:10px 20px;
+  border:none;
+  background:#00ffd5;
+  color:black;
+  border-radius:20px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.1);
+}
+
+/* SECTIONS */
+section{
+  padding:60px 20px;
+  text-align:center;
+}
+
+.card{
+  background:rgba(255,255,255,0.1);
+  padding:20px;
+  border-radius:15px;
+  margin:10px;
+  backdrop-filter:blur(10px);
+}
+
+/* FLEX */
+.flex{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+/* ANIMATION */
+.fade{
+  opacity:0;
+  transform:translateY(30px);
+  transition:1s;
+}
+
+.fade.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  .hero h1{
+    font-size:28px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <h2>Yash</h2>
+  <ul>
+    <li>Home</li>
+    <li>About</li>
+    <li>Skills</li>
+    <li>Contact</li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Hello, I'm <span id="typing"></span></h1>
+  <p>Class 7 Student | Cricket Lover 🏏</p>
+  <button class="btn">My Portfolio</button>
+</div>
+
+<!-- ABOUT -->
+<section class="fade">
+  <h2>About Me</h2>
+  <p>
+    My name is Yash. I study in Class 7 at Vandana Convent School.
+    I love playing cricket and I want to grow my skills and become successful in life.
+  </p>
+</section>
+
+<!-- SKILLS -->
+<section class="fade">
+  <h2>My Skills</h2>
+  <div class="flex">
+    <div class="card">🏏 Cricket</div>
+    <div class="card">💻 Basic Computer</div>
+    <div class="card">🎨 Creativity</div>
+    <div class="card">📚 Learning New Things</div>
+  </div>
+</section>
+
+<!-- HOBBY -->
+<section class="fade">
+  <h2>My Hobby</h2>
+  <div class="card">
+    I love playing cricket. It keeps me active and teaches teamwork and discipline.
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="fade">
+  <h2>Contact Me</h2>
+  <p>Email: yash@email.com</p>
+</section>
+
+<script>
+// Typing Effect
+let text = "Yash";
+let i = 0;
+
+function typing(){
+  if(i < text.length){
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typing,150);
+  }
+}
+typing();
+
+// Scroll Animation
+let elements = document.querySelectorAll(".fade");
+
+window.addEventListener("scroll", ()=>{
+  elements.forEach(el=>{
+    let pos = el.getBoundingClientRect().top;
+    let screen = window.innerHeight;
+
+    if(pos < screen - 100){
+      el.classList.add("show");
+    }
+  });
+});
+</script>
+
+</body>
+</html>aa
